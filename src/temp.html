@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="categories-container">
+            <ul>
+                <li id="fantasy">Fantasy</li>
+                <li id="love">Love</li>
+                <li id="psicology">Psicology</li>
+                <li id="scienze">Scienze</li>
+            </ul>
+            </div>
+        </nav>
+        <h1>Book</h1>
+        <div class="search-bar">
+            <input  type="search" name="search" class = "search-inp" id="searchInp" required>
+            <button  class="search-btn" id="searchBtn" type="submit"></button>
+        </div>
+        <p>Find any book by subcjets</p>
+    </header>
+    
+    <main class="book-list" id="book-list"></main>
+    
+    <div id="info"></div>
+    
+
+
+
+
+
+<script>
+    async function detailsBook(keyBook){
+        let popOutput='';
+        const response = await fetch(`https://openlibrary.org${keyBook}.json`)
+        const data = await response.json();
+    try{popOutput += `    
+                     <div class="popup" id="popup-container">
+                           <div class="details-container">
+                              <button id="close-popup"><i class="fa fa-times-circle"></i></button>
+                              <div class="title-details">
+                                  <h4>Description</h4>
+                              </div>
+                              <div class="description">
+                                  <p>${data.description.value ? data.description.value : data.description}</p>
+                              </div>
+                          </div>
+                      </div>
+                       `;
+        document.getElementById('info').innerHTML = popOutput;
+    } 
+        catch(err){
+            if (err instanceof TypeError) {
+               alert('Sorry! No description found')
+            } else {
+                   throw err; 
+                    }
+        }
+        
+        const popupContainer = document.getElementById('popup-container');
+        const closePopup = document.getElementById('close-popup');
+        closePopup.addEventListener('click', ()=>{
+        popupContainer.classList.add('hidden');
+    })
+};
+</script>
+</body>
+</html>
