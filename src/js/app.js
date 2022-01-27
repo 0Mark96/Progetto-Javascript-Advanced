@@ -1,12 +1,17 @@
 
 import axios from "axios";
-import style from "./main.css"
-document.querySelector('#searchBtn').addEventListener('click', searchBooks);
 
+import "../css/styles.css";
+
+// async function to search book on input bar
+
+document.querySelector('#searchBtn').addEventListener('click', searchBooks);
 
 async function searchBooks(event) {
 	
-  let input = document.querySelector('#searchInp').value.toLowerCase();
+  let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
+  
+//use input value to load api, after send to screen all book list found
   const response = await axios.get(`https://openlibrary.org/subjects/${input}.json?details=true`)
   const data = await response.data;
   let output = '';
@@ -26,14 +31,15 @@ async function searchBooks(event) {
           <a id="btn-details" onclick="detailsBook('${book.key}')" href="javascript:void(0)"><button>details</button></a>
           </div>`;
         });
-      	
-    document.getElementById('book-list').innerHTML = output;
-    if(output == ''){
-      document.getElementById('book-list').innerHTML = `<h4><b>Sorry! No books founds</b></h4>`;
-    }
+        document.getElementById('book-list').innerHTML = output;
+
+        // if book didn't found then..
+        if(output == ''){
+        document.getElementById('book-list').innerHTML = `<h4><b>Sorry! No books founds</b></h4>`;
+      }
 }
 
-// categories 
+//-----------------------------------------CATEGORIES---------------------------------------------
 
 // Search fantasy books
 
