@@ -1,1 +1,1 @@
-export default __webpack_public_path__ + "video/TableDesktop.mp4";
+export default __webpack_public_path__ + "video/tableDesktop.mp4";

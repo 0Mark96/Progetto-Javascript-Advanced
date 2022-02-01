@@ -24,10 +24,10 @@ module.exports = (env, argv) => {
       rules: [
            {test: /\.css$/, use: ['style-loader','css-loader', 'sass-loader']
           },
-          {test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, 
+          {test: /\.(svg|ico|png|webp|jpg|gif|jpeg|mp4)$/, 
             type: 'asset/resource'
           },
-      /*  {
+        {
             test: /\.html$/,
             
             use: [
@@ -46,7 +46,7 @@ module.exports = (env, argv) => {
                     }
                 }
             ]
-        },*/
+        },
      
 
          {
