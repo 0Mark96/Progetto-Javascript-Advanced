@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const loader = require('sass-loader');
 
 module.exports = (env, argv) => {
     const entryPath =
@@ -21,10 +22,46 @@ module.exports = (env, argv) => {
       },
     module:{
       rules: [
-          {test: /\.css$/, use: ['style-loader','css-loader', 'sass-loader']},
+           {test: /\.css$/, use: ['style-loader','css-loader', 'sass-loader']
+          },
           {test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, 
-            type: 'asset/resource'},
+            type: 'asset/resource'
+          },
+      /*  {
+            test: /\.html$/,
+            
+            use: [
+                {
+                    loader: "html-loader",
+                    options: {
+                        sources: {
+                            list: [
+                                {
+                                    tag: "source",
+                                    attribute: "src",
+                                    type: "src"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },*/
+     
+
+         {
+            test:/\.(mov|mp4)$/,
+            use:{
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "video"
+              }
+            }
+          
+          }
       ],
+    
     },
     plugins: [
         new HtmlWebpackPlugin({
