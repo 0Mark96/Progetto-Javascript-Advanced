@@ -3,8 +3,8 @@ import axios from "axios";
 
 import "../css/styles.css";
 
-import video1 from './video/table.mp4'//-!file-loader!
-import video2 from './video/tableDesktop.mp4'
+import video1 from './video/Table.mp4'//-!file-loader!
+import video2 from './video/TableDesktop.mp4'
 // async function to search book on input bar
 
 document.querySelector('#searchBtn').addEventListener('click', searchBooks);
@@ -77,12 +77,12 @@ async function searchFantasyBooks(event) {
 let videoTag = document.getElementById('video')
 if(window.screen.width < 840){
   let source = document.createElement("source")
-  source.src = "./video/table.mp4"
+  source.src = "./video/Table.mp4"
   source.type = "video/mp4"
   videoTag.append(source);
 }else{
   let source = document.createElement("source")
-  source.src = "./video/tableDesktop.mp4"
+  source.src = "./video/TableDesktop.mp4"
   source.type = "video/mp4"
   videoTag.append(source);
 }
