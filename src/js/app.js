@@ -3,8 +3,8 @@ import axios from "axios";
 
 import "../css/styles.css";
 
-import video1 from './video/Table.mp4'//-!file-loader!
-import video2 from './video/TableDesktop.mp4'
+import video1 from './src/js/video/Table.mp4'//-!file-loader!
+import video2 from './src/js/video/TableDesktop.mp4'
 // async function to search book on input bar
 
 document.querySelector('#searchBtn').addEventListener('click', searchBooks);
