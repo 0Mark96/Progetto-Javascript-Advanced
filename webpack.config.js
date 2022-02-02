@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
           },
         {
             test: /\.html$/,
-            
+            exclude: /node_modules/,
             use: [
                 {
                     loader: "html-loader",
