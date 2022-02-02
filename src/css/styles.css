@@ -13,22 +13,23 @@ body {
   background-image: url(../img/Tablefoto3.jpg);
   background-size: cover;
   background-attachment: fixed;
+  z-index: -1;
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 header h1 {
   font-size: 70px;
   margin-top: 18vh;
 }
-
-.background-video {
+header .background-video {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   position: absolute;
   left: 0;
@@ -139,37 +140,23 @@ header h1 {
 }
 
 /* ------------------------------------BOOK LIST-------------------------------*/
-.all-book-container {
+.book-btn-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 3em;
 }
-.all-book-container button {
-  background-color: #322828;
-  width: 8em;
-  height: 1.7em;
-  margin-top: -2em;
-  margin-bottom: 3em;
-  font-size: 12px;
-  font-weight: 400;
-  color: white;
-  border-radius: 2px;
-  border-bottom-right-radius: 15px;
-  border-top-left-radius: 15px;
-}
-
-.all-book-container-2 {
+.book-btn-container .all-book-container-2 {
   background-image: url(../img/book.png);
   background-size: cover;
   width: 17em;
   height: 22.5em;
-  margin: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.all-book-container-2 .title {
+.book-btn-container .all-book-container-2 .title {
   width: 88%;
   height: auto;
   margin-right: 1em;
@@ -180,10 +167,10 @@ header h1 {
   flex-direction: column;
   align-items: center;
 }
-.all-book-container-2 .title h1 {
+.book-btn-container .all-book-container-2 .title h1 {
   font-size: 24px;
 }
-.all-book-container-2 .author {
+.book-btn-container .all-book-container-2 .author {
   width: 88%;
   height: auto;
   margin-right: 1em;
@@ -194,8 +181,20 @@ header h1 {
   flex-direction: column;
   align-items: center;
 }
-.all-book-container-2 .author p {
+.book-btn-container .all-book-container-2 .author p {
   font-size: 13px;
+}
+.book-btn-container button {
+  background-color: #322828;
+  width: 8em;
+  height: 1.7em;
+  margin-top: 1.5em;
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+  border-radius: 2px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 /*--------------------------POPUP CONTAINER ABOUT BOOK DESCRIPTION-----------------------*/
@@ -252,12 +251,6 @@ header h1 {
 .hidden {
   opacity: 0;
   pointer-events: none;
-}
-
-@media only screen and (min-width: 675px) {
-  header {
-    height: 100vh;
-  }
 }
 
 /*# sourceMappingURL=styles.css.map */

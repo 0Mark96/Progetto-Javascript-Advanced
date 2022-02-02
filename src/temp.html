@@ -13,40 +13,25 @@
 
     <header>
 
-          <video class="background-video" id="video" autoplay muted >
-
-          </video>
-
-        <nav>
-            <div id="categories-container">
-            <ul>
-                <li id="fantasy">Fantasy</li>
-                <li id="love">Love</li>
-                <li id="psicology">Psicology</li>
-                <li id="scienze">Scienze</li>
-            </ul>
-            </div>
-        </nav>
+          <video class="background-video" id="video" autoplay muted ></video>
+        
         <h1>Book</h1>
+      
         <div class="search-bar">
             <input  type="search" name="search" class = "search-inp" id="searchInp" required>
             <button  class="search-btn" id="searchBtn" type="submit"></button>
         </div>
+       
         <p>Find any book by subcjets</p>
+   
     </header>
 
-    <main class="container">
-
-    <div class="row row-cols-auto book-list" id="book-list" style="display: flex; justify-content: center;"></div>
+    <main class="list-container">
+       <div class="row row-cols-auto book-list" id="book-list" style="display: flex; justify-content: center; width: 100vw;"></div>
     </main>
     
     <div id="info"></div>
     
-
-
-
-
-
 <script>
     async function detailsBook(keyBook){
         let popOutput='';

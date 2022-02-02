@@ -13,20 +13,21 @@ body{
     background-image: url(../img/Tablefoto3.jpg);
     background-size: cover;
     background-attachment:fixed ;
+    z-index: -1;
 }
 header{
     display: flex; 
     flex-direction: column;
 	align-items: center;
-	width: 100%;
+	width: 100vw;
+    height: 100vh;
     h1 {
         font-size: 70px;
         margin-top: 18vh;
         }
-}
-.background-video {
+    .background-video {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     object-fit: cover;
     position: absolute;
     left: 0;
@@ -35,6 +36,8 @@ header{
     bottom: 0;
     z-index: -1;
   }
+}
+
 
 /*------------------------------------SEARCH BAR------------------------------*/
 
@@ -129,65 +132,64 @@ header{
 }
  /* ------------------------------------BOOK LIST-------------------------------*/
 
-.all-book-container{
+.book-btn-container{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-    button{
-        background-color:#322828;
-        width: 8em;
-        height: 1.7em;
-        margin-top: -2em;
-        margin-bottom: 3em;
-        font-size: 12px;
-        font-weight:400;
-        color: rgb(255, 255, 255);
-        border-radius: 2px;
-        border-bottom-right-radius: 15px;
-        border-top-left-radius: 15px;
-        
-    }
-}
-.all-book-container-2 {
-	background-image: url(../img/book.png);
-	background-size: cover;
-	width: 17em;
-	height: 22.5em;
-	margin: 1em;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-    .title{
-        width: 88%;
-        height: auto;
-        margin-right: 1em;
-        margin-top: 1.3em;
-        padding: 1em;
-        color: rgba(255, 255, 255, 0.705);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h1{
-            font-size: 24px;
+    margin: 3em;
+    .all-book-container-2 {
+	   background-image: url(../img/book.png);
+	   background-size: cover;
+	   width: 17em;
+	   height: 22.5em;
+       display: flex;
+	   flex-direction: column;
+	   align-items: center;
+	   justify-content: space-around; 
+       .title{
+           width: 88%;
+           height: auto;
+           margin-right: 1em;
+           margin-top: 1.3em;
+           padding: 1em;
+           color: rgba(255, 255, 255, 0.705);
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           h1{
+              font-size: 24px;
             }
-    }
-    .author{
-        width: 88%;
-        height: auto;
-        margin-right: 1em;
-        padding: 1em;
-        color: rgba(255, 255, 255, 0.705);
-        margin-bottom: 0.6em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        p{
+        }
+        .author{
+           width: 88%;
+           height: auto;
+           margin-right: 1em;
+           padding: 1em;
+           color: rgba(255, 255, 255, 0.705);
+           margin-bottom: 0.6em;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           p{
             font-size:13px;
+           }
         }
     }
+    button{
+    background-color:#322828;
+    width: 8em;
+    height: 1.7em;
+    margin-top: 1.5em;
+    font-size: 12px;
+    font-weight:400;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    }
+   
 }
+
 
 /*--------------------------POPUP CONTAINER ABOUT BOOK DESCRIPTION-----------------------*/
 .popup{
@@ -243,10 +245,4 @@ header{
 .hidden{
 	opacity: 0;
 	pointer-events: none;
-}
-@media only screen and (min-width:675px){
-    header{
-        height: 100vh;
- 
-    }
 }
