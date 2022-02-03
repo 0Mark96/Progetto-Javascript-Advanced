@@ -30,7 +30,7 @@ async function searchBooks(event) {
                 book.authors.forEach(author => {output += `${author.name}. `});
                 output +=`</div>
            </div>
-          <a id="btn-details" onclick="detailsBook('${book.key}')" href="javascript:void(0)"><button>READ MORE <i class="fa fa-thin fa-pencil"></i></button></a>
+          <a id="btn-details" onclick="detailsBook('${book.key}')" href="javascript:void(0)"><button><i class="fa fa-info"></i></button></a>
           </div>`;
         });
         document.getElementById('book-list').innerHTML = output;

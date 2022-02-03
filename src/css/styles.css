@@ -20,7 +20,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
 }
 header h1 {
@@ -144,7 +144,9 @@ header .background-video {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3em;
+  margin: 2em;
+  margin-left: 0em;
+  margin-right: 0;
 }
 .book-btn-container .all-book-container-2 {
   background-image: url(../img/book.png);
@@ -185,21 +187,15 @@ header .background-video {
   font-size: 13px;
 }
 .book-btn-container button {
-  background-color: #322828;
-  width: 8em;
-  height: 1.7em;
-  margin-top: 1.5em;
-  font-size: 12px;
-  font-weight: 400;
-  color: white;
-  border-radius: 2px;
-  border-bottom-right-radius: 15px;
-  border-top-left-radius: 15px;
+  background-color: transparent;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.705);
+  margin-bottom: -3em;
 }
 
 /*--------------------------POPUP CONTAINER ABOUT BOOK DESCRIPTION-----------------------*/
 .popup {
-  background-color: #c7c7c7;
+  background-color: #242424;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,21 +206,23 @@ header .background-video {
   bottom: 0;
 }
 .popup .details-container {
-  background-image: url(../img/page.png);
   background-size: cover;
-  width: 17em;
-  height: 23em;
+  width: 100%;
+  max-height: 80%;
+  min-height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-bottom: 20%;
+  color: rgba(241, 240, 240, 0.705);
+  overflow: auto;
 }
 .popup .details-container .title-details {
   width: 88%;
   height: auto;
   margin-right: 1em;
   margin-top: 1.3em;
-  color: rgba(7, 7, 7, 0.705);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,25 +230,56 @@ header .background-video {
 .popup .details-container .description {
   max-width: 88%;
   margin-right: 1em;
-  color: rgba(3, 3, 3, 0.705);
   margin-bottom: 0.6em;
   margin-top: 1.3em;
   font-size: 13px;
   padding: 0.2em;
   box-sizing: border-box;
 }
-.popup .details-container button {
+.popup .details-container .description .p {
+  font-size: 15px;
+}
+.popup button {
   position: absolute;
-  bottom: -1.6em;
+  bottom: 0.5em;
   background-color: transparent;
-  color: #aa8f44;
   font-size: 3em;
   cursor: pointer;
+  color: rgba(241, 240, 240, 0.705);
 }
 
 .hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+@media only screen and (min-width: 800px) {
+  .popup {
+    max-width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+  .popup .details-container {
+    background-size: cover;
+    width: 80%;
+    max-height: 70%;
+    min-height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    color: rgba(241, 240, 240, 0.705);
+    overflow: auto;
+  }
+  .popup .details-container .title-details > h3 {
+    font-size: 35px;
+    margin-top: -0.5em;
+  }
+  .popup .details-container .description > p {
+    font-size: 18px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

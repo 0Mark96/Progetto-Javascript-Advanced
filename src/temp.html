@@ -27,7 +27,7 @@
     </header>
 
     <main class="list-container">
-       <div class="row row-cols-auto book-list" id="book-list" style="display: flex; justify-content: center; width: 100vw;"></div>
+       <div class="row row-cols-auto book-list" id="book-list" style="display: flex; justify-content: center; max-width: 98vw;"></div>
     </main>
     
     <div id="info"></div>
@@ -41,14 +41,14 @@
         popOutput += `    
                      <div class="popup" id="popup-container">
                            <div class="container-sm details-container">
-                              <button id="close-popup"><i class="fa fa-times-circle"></i></button>
                               <div class="title-details">
-                                  <h4>Description</h4>
+                                  <h3>Description</h3>
                               </div>
                               <div class="description">
                                   <p>${data.description.value ? data.description.value : data.description}</p>
                               </div>
-                          </div>
+                            </div>
+                          <button id="close-popup"><i class="fa fa-times-circle"></i></button>
                       </div>
                        `;
         document.getElementById('info').innerHTML = popOutput;
