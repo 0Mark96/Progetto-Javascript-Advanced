@@ -1,11 +1,14 @@
+/*-----------------------------FONT-------------------------*/
 @font-face {
   font-family: "Font";
   src: url("../font/TheBook.otf");
 }
 @font-face {
   font-family: "FontAllPage";
-  src: url("../font/Bookends-BookendsWithAccents.otf");
+  src: url("../font/GoudyBookletter1911-Regular.ttf");
 }
+/*-----------------------------COLOR------------------------*/
+/*   START STYLING  */
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +25,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   z-index: -1;
+  font-family: "FontAllPage";
 }
 
 header {
@@ -40,8 +44,7 @@ header h1 {
 }
 header p {
   color: #d2d6b3;
-  font-family: "FontAllPage";
-  font-size: 28px;
+  font-size: 17px;
 }
 header .background-video {
   width: 100%;
@@ -61,12 +64,13 @@ header .background-video {
   padding: 1.5em;
   justify-content: center;
   max-width: 30em;
+  font-family: initial;
 }
 .search-bar .search-inp {
-  color: #ffffff;
+  color: #d2d6b3;
   background: transparent;
   border-radius: 50%;
-  box-shadow: 0 0 0 0.5em #E3E2E3 inset;
+  box-shadow: 0 0 0 0.5em #d2d6b3 inset;
   padding: 0.75em;
   transform: translate(0.5em, 0.5em) scale(0.5);
   transform-origin: 100% 0;
@@ -74,7 +78,7 @@ header .background-video {
   height: 3em;
 }
 .search-bar .search-btn {
-  background: #E3E2E3;
+  background: #d2d6b3;
   border-radius: 0 0.95em 0.95em 0/0 1.5em 1.5em 0;
   padding: 0.75em;
   position: relative;
@@ -100,9 +104,9 @@ header .background-video {
 .search-inp:valid {
   width: 100%;
   outline: transparent;
-  background: #c4ffff;
+  background: #1d1d1d;
   border-radius: 0.375em 0 0 0.375em;
-  box-shadow: 0 0 0 0.1em #c4ffff inset;
+  box-shadow: 0 0 0 0.1em #1d1d1d inset;
   transform: scale(1);
 }
 
@@ -116,7 +120,7 @@ header .background-video {
 
 .search-btn:before {
   border-radius: 50%;
-  box-shadow: 0 0 0 0.2em #922323 inset;
+  box-shadow: 0 0 0 0.2em #d2d6b3 inset;
   top: 0.75em;
   left: 0.75em;
   width: 1.2em;
@@ -124,7 +128,7 @@ header .background-video {
 }
 
 .search-btn:after {
-  background: #922323;
+  background: #d2d6b3;
   border-radius: 0 0.25em 0.25em 0;
   top: 51%;
   left: 51%;
@@ -137,7 +141,7 @@ header .background-video {
 /* Active state */
 .search-inp:focus + .search-btn,
 .search-inp:valid + .search-btn {
-  background: #c4ffff;
+  background: #1d1d1d;
   border-radius: 0 0.375em 0.375em 0;
   transform: scale(1);
 }
@@ -152,7 +156,7 @@ header .background-video {
 .search-bar input:focus + .search-btn:hover,
 .search-bar input:valid + .search-btn:hover,
 .search-bar input:valid:not(:focus) + .search-btn:focus {
-  background: #adc949;
+  background: #A88C00;
 }
 
 /* ------------------------------------BOOK LIST-------------------------------*/
@@ -163,6 +167,7 @@ header .background-video {
   margin: 2em;
   margin-left: 0em;
   margin-right: 0;
+  color: rgba(255, 255, 255, 0.705);
 }
 .book-btn-container .all-book-container-2 {
   background-image: url(../img/book.png);
@@ -180,7 +185,6 @@ header .background-video {
   margin-right: 1em;
   margin-top: 1.3em;
   padding: 1em;
-  color: rgba(255, 255, 255, 0.705);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,7 +197,6 @@ header .background-video {
   height: auto;
   margin-right: 1em;
   padding: 1em;
-  color: rgba(255, 255, 255, 0.705);
   margin-bottom: 0.6em;
   display: flex;
   flex-direction: column;
@@ -205,8 +208,8 @@ header .background-video {
 .book-btn-container button {
   background-color: transparent;
   font-size: 2em;
-  color: rgba(255, 255, 255, 0.705);
   margin-bottom: -3em;
+  color: rgba(255, 255, 255, 0.705);
 }
 
 /*--------------------------POPUP CONTAINER ABOUT BOOK DESCRIPTION-----------------------*/
@@ -231,8 +234,8 @@ header .background-video {
   align-items: center;
   position: relative;
   margin-bottom: 20%;
-  color: rgba(241, 240, 240, 0.705);
   overflow: auto;
+  color: rgba(255, 255, 255, 0.705);
 }
 .popup .details-container .title-details {
   width: 88%;
@@ -261,7 +264,7 @@ header .background-video {
   background-color: transparent;
   font-size: 3em;
   cursor: pointer;
-  color: rgba(241, 240, 240, 0.705);
+  color: rgba(255, 255, 255, 0.705);
 }
 
 .hidden {
@@ -276,18 +279,10 @@ header .background-video {
     right: 10%;
   }
   .popup .details-container {
-    background-size: cover;
     width: 80%;
     max-height: 70%;
     min-height: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
     margin-top: 10%;
-    margin-bottom: 20%;
-    color: rgba(241, 240, 240, 0.705);
-    overflow: auto;
   }
   .popup .details-container .title-details > h3 {
     font-size: 35px;
