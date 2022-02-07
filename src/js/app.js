@@ -11,7 +11,9 @@ document.querySelector('#searchBtn').addEventListener('click', searchBooks);
   async function searchBooks() {
 
   let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
-  
+  let header = document.querySelector('header');
+  let listContainer = document.getElementById('list-container');
+
 //use input value to load api, after send to screen all book list found
   const response = await axios.get(`https://openlibrary.org/subjects/${input}.json?details=true`)
   const data = await response.data;
@@ -19,7 +21,7 @@ document.querySelector('#searchBtn').addEventListener('click', searchBooks);
   await data.works.forEach(book => {
       		output += `
           <div class="col-lg-4 book-btn-container">
-          <div class="all-book-container-2">
+          <div class="all-book-container-2" onclick="detailsBook('${book.key}')">
               <div class="title">
                 <h1>${book.title}</h1>
               </div>
@@ -32,15 +34,27 @@ document.querySelector('#searchBtn').addEventListener('click', searchBooks);
           <a id="btn-details" onclick="detailsBook('${book.key}')" href="javascript:void(0)"><button><i class="fa fa-info"></i></button></a>
           </div>`;
         });
-
-         document.getElementById('book-list').innerHTML = output;
+         header.style.display='none'
+         listContainer.innerHTML =`
+         <i id="home" class="fa fa-home"> Back Home</i> 
+         <div class="row row-cols-auto book-list" id="book-list">${output}</div>
+         ;`
         
+      
         // if book didn't found then..
+        let bookList = document.getElementById('book-list');
         if(output == ''){
-        document.getElementById('book-list').innerHTML = `<h4><b>Sorry! No books founds</b></h4>`;
-      }
+        bookList.innerHTML = `<h4><b>Sorry! No books founds</b></h4>`;
+        } 
+      
+        let home = document.getElementById("home") 
+        home.addEventListener('click',()=>{
+        header.style.display='inherit';
+        listContainer.innerHTML=''
+        })
       
 }
+
 
 
 

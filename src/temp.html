@@ -11,7 +11,7 @@
 <body>
 
 
-    <header>
+    <header id="header">
 
           <video class="background-video" id="video" autoplay muted ></video>
         
@@ -19,15 +19,14 @@
       
         <div class="search-bar">
             <input type="search" name="search" class = "search-inp" id="searchInp" required>
-            <a class="search-btn" id="searchBtn" href="#book-list"><button type="submit"></button></a>
+            <a class="search-btn" id="searchBtn"><button type="submit"></button></a>
         </div>
        
         <p>Find any book by subcjets</p>
    
     </header>
     
-    <main class="list-container">
-       <div class="row row-cols-auto book-list" id="book-list" style="display: flex; justify-content: center; max-width: 98vw;"></div>
+    <main class="list-container" id="list-container">
     </main>
     
     <div id="info"></div>
@@ -65,6 +64,7 @@
         const closePopup = document.getElementById('close-popup');
         closePopup.addEventListener('click', ()=>{
         popupContainer.classList.add('hidden');
+
     })
 };
 

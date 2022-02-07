@@ -165,6 +165,23 @@ header .background-video {
 }
 
 /* ------------------------------------BOOK LIST-------------------------------*/
+.list-container #home {
+  margin-top: 1.2em;
+  margin-left: 0.5em;
+  color: rgba(255, 255, 255, 0.705);
+  font-size: 20px;
+}
+.list-container #home:hover {
+  color: #A88C00;
+  transform: scale(1.1);
+}
+.list-container #book-list {
+  display: flex;
+  justify-content: center;
+  max-width: 98vw;
+  margin-top: 50px;
+}
+
 .book-btn-container {
   display: flex;
   flex-direction: column;
@@ -183,6 +200,9 @@ header .background-video {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+.book-btn-container .all-book-container-2:hover {
+  transform: scale(1.015);
 }
 .book-btn-container .all-book-container-2 .title {
   width: 88%;
@@ -218,6 +238,7 @@ header .background-video {
 }
 .book-btn-container button:hover {
   color: #A88C00;
+  transform: scale(1.2);
 }
 
 /*--------------------------POPUP CONTAINER ABOUT BOOK DESCRIPTION-----------------------*/
@@ -278,6 +299,21 @@ header .background-video {
 .hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/*------------------------------------SCROLL BAR---------------------------*/
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #d2d6b3;
+  background-color: #1d1d1d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2d6b3;
+  border-radius: 6px;
 }
 
 @media only screen and (min-width: 800px) {
