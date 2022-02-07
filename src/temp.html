@@ -15,17 +15,17 @@
 
           <video class="background-video" id="video" autoplay muted ></video>
         
-        <h1>Book Finder</h1>
+       <h1>Book Finder</h1>
       
         <div class="search-bar">
-            <input  type="search" name="search" class = "search-inp" id="searchInp" required>
-            <button  class="search-btn" id="searchBtn" type="submit"></button>
+            <input type="search" name="search" class = "search-inp" id="searchInp" required>
+            <a class="search-btn" id="searchBtn" href="#book-list"><button type="submit"></button></a>
         </div>
        
         <p>Find any book by subcjets</p>
    
     </header>
-
+    
     <main class="list-container">
        <div class="row row-cols-auto book-list" id="book-list" style="display: flex; justify-content: center; max-width: 98vw;"></div>
     </main>
@@ -42,7 +42,7 @@
                      <div class="popup" id="popup-container">
                            <div class="container-sm details-container">
                               <div class="title-details">
-                                  <h3>Description</h3>
+                                  <h1>Description</h1>
                               </div>
                               <div class="description">
                                   <p>${data.description.value ? data.description.value : data.description}</p>

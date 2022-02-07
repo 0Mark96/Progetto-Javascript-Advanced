@@ -36,7 +36,7 @@ header {
   height: 100vh;
 }
 header h1 {
-  font-size: 80px;
+  font-size: 83px;
   margin-top: 26vh;
   color: #d2d6b3;
   text-shadow: -5px 7px 5px #1d1d1d;
@@ -44,7 +44,7 @@ header h1 {
 }
 header p {
   color: #d2d6b3;
-  font-size: 17px;
+  font-size: 19px;
 }
 header .background-video {
   width: 100%;
@@ -56,6 +56,11 @@ header .background-video {
   top: 0;
   bottom: 0;
   z-index: -1;
+  box-shadow: 0px 6px 20px #1d1d1d;
+}
+
+#book-list {
+  min-height: 100vh;
 }
 
 /*------------------------------------SEARCH BAR------------------------------*/
@@ -190,7 +195,7 @@ header .background-video {
   align-items: center;
 }
 .book-btn-container .all-book-container-2 .title h1 {
-  font-size: 24px;
+  font-size: 23px;
 }
 .book-btn-container .all-book-container-2 .author {
   width: 88%;
@@ -203,7 +208,7 @@ header .background-video {
   align-items: center;
 }
 .book-btn-container .all-book-container-2 .author p {
-  font-size: 13px;
+  font-size: 14px;
 }
 .book-btn-container button {
   background-color: transparent;
@@ -211,10 +216,13 @@ header .background-video {
   margin-bottom: -3em;
   color: rgba(255, 255, 255, 0.705);
 }
+.book-btn-container button:hover {
+  color: #A88C00;
+}
 
 /*--------------------------POPUP CONTAINER ABOUT BOOK DESCRIPTION-----------------------*/
 .popup {
-  background-color: #242424;
+  background-color: #0E0E0E;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,18 +253,18 @@ header .background-video {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #d2d6b3;
 }
 .popup .details-container .description {
   max-width: 88%;
   margin-right: 1em;
   margin-bottom: 0.6em;
   margin-top: 1.3em;
-  font-size: 13px;
   padding: 0.2em;
   box-sizing: border-box;
 }
-.popup .details-container .description .p {
-  font-size: 15px;
+.popup .details-container .description p {
+  font-size: 17px;
 }
 .popup button {
   position: absolute;
@@ -264,7 +272,7 @@ header .background-video {
   background-color: transparent;
   font-size: 3em;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.705);
+  color: #d2d6b3;
 }
 
 .hidden {
@@ -273,23 +281,23 @@ header .background-video {
 }
 
 @media only screen and (min-width: 800px) {
+  header h1 {
+    font-size: 100px;
+  }
+
   .popup {
-    max-width: 80%;
-    left: 10%;
-    right: 10%;
+    max-width: 60%;
+    left: 20%;
+    right: 20%;
   }
   .popup .details-container {
-    width: 80%;
+    width: 95%;
     max-height: 70%;
     min-height: 70%;
     margin-top: 10%;
   }
-  .popup .details-container .title-details > h3 {
-    font-size: 35px;
+  .popup .details-container .title-details > h1 {
     margin-top: -0.5em;
-  }
-  .popup .details-container .description > p {
-    font-size: 18px;
   }
 }
 

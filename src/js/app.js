@@ -6,11 +6,10 @@ import "../css/styles.css";
 import video1 from '../video/Table.mp4'//-!file-loader!
 import video2 from '../video/TableDesktop.mp4'
 // async function to search book on input bar
-
 document.querySelector('#searchBtn').addEventListener('click', searchBooks);
 
-async function searchBooks(event) {
-	
+  async function searchBooks() {
+
   let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
   
 //use input value to load api, after send to screen all book list found
@@ -33,17 +32,22 @@ async function searchBooks(event) {
           <a id="btn-details" onclick="detailsBook('${book.key}')" href="javascript:void(0)"><button><i class="fa fa-info"></i></button></a>
           </div>`;
         });
-        document.getElementById('book-list').innerHTML = output;
 
+         document.getElementById('book-list').innerHTML = output;
+        
         // if book didn't found then..
         if(output == ''){
         document.getElementById('book-list').innerHTML = `<h4><b>Sorry! No books founds</b></h4>`;
       }
+      
 }
 
+
+
+ 
 //-----------------------------------------CATEGORIES---------------------------------------------
 
-// Search fantasy books
+
 
 
 let videoTag = document.getElementById('video')
