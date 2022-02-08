@@ -163,8 +163,9 @@ header{
  /* ------------------------------------BOOK LIST-------------------------------*/
  .list-container{
     #home{  
-        margin-top:1.2em;
-        margin-left: 0.5em;
+        position: absolute;
+       top:1.2em;
+       left: 0.5em;
         color: $white-transparent;
         font-size: 20px;  
         &:hover{
@@ -177,6 +178,10 @@ header{
        justify-content: center;
        max-width: 98vw;
        margin-top: 50px;
+    }
+    h3{
+        color: $white-transparent;
+        margin-top: 40%;
     }
  }
  
@@ -263,6 +268,7 @@ header{
         position: relative;
         margin-bottom: 20%;
         overflow:auto;
+        overflow-x:hidden;
         color: $white-transparent;
         .title-details{
             width: 88%;

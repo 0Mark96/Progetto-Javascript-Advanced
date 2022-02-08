@@ -22,52 +22,13 @@
             <a class="search-btn" id="searchBtn"><button type="submit"></button></a>
         </div>
        
-        <p>Find any book by subcjets</p>
+        <p>Find any book by subject</p>
    
     </header>
     
-    <main class="list-container" id="list-container">
-    </main>
+    <main class="list-container" id="list-container"></main>
     
     <div id="info"></div>
     
-<script>
-    async function detailsBook(keyBook){
-        let popOutput='';
-        const response = await fetch(`https://openlibrary.org${keyBook}.json`)
-        const data = await response.json();
-    try{
-        popOutput += `    
-                     <div class="popup" id="popup-container">
-                           <div class="container-sm details-container">
-                              <div class="title-details">
-                                  <h1>Description</h1>
-                              </div>
-                              <div class="description">
-                                  <p>${data.description.value ? data.description.value : data.description}</p>
-                              </div>
-                            </div>
-                          <button id="close-popup"><i class="fa fa-times-circle"></i></button>
-                      </div>
-                       `;
-        document.getElementById('info').innerHTML = popOutput;
-    } 
-        catch(err){
-            if (err instanceof TypeError) {
-               alert('Sorry! No description found')
-            } else {
-                   throw err; 
-                    }
-        }
-        
-        const popupContainer = document.getElementById('popup-container');
-        const closePopup = document.getElementById('close-popup');
-        closePopup.addEventListener('click', ()=>{
-        popupContainer.classList.add('hidden');
-
-    })
-};
-
-</script>
 </body>
 </html>

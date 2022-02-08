@@ -166,8 +166,9 @@ header .background-video {
 
 /* ------------------------------------BOOK LIST-------------------------------*/
 .list-container #home {
-  margin-top: 1.2em;
-  margin-left: 0.5em;
+  position: absolute;
+  top: 1.2em;
+  left: 0.5em;
   color: rgba(255, 255, 255, 0.705);
   font-size: 20px;
 }
@@ -180,6 +181,10 @@ header .background-video {
   justify-content: center;
   max-width: 98vw;
   margin-top: 50px;
+}
+.list-container h3 {
+  color: rgba(255, 255, 255, 0.705);
+  margin-top: 40%;
 }
 
 .book-btn-container {
@@ -264,6 +269,7 @@ header .background-video {
   position: relative;
   margin-bottom: 20%;
   overflow: auto;
+  overflow-x: hidden;
   color: rgba(255, 255, 255, 0.705);
 }
 .popup .details-container .title-details {
