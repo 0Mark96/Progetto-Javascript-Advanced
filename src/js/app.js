@@ -26,20 +26,37 @@ if(window.screen.width < 840){
 
 // FUNCTION TO LOAD DATA FROM 'openlibrary.org'
 
+//add event to form
+let form = document.querySelector('#search-form')
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
+let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, '');
+searchBooks(input)
+})
 
-document.querySelector('#searchBtn').addEventListener('click', searchBooks); //add search book function
+//add event to button
+let searchBtn = document.querySelector('#searchBtn')
+searchBtn.addEventListener('click',  () => {
+let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, '');
+searchBooks(input)
+}); 
+
+
 
 // ---------------------function to load book data and show output on screen------------------------
-async function searchBooks() {
+
+async function searchBooks(input) {
   
 //add first container where to append book 
   let listContainer = document.getElementById('list-container');
-  listContainer.innerHTML =` 
+  listContainer.innerHTML =`
+  <i id="home" class="fa fa-home"> Back Home</i>
   <div class="row row-cols-auto book-list" id="book-list"></div>
- ` 
+  `
+ 
   
   //use input value to load api, after send to screen all book list found
-  let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
+  //let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
   const response = await axios.get(`https://openlibrary.org/subjects/${input}.json?details=true`)
   const data = await response.data;
   
@@ -78,6 +95,7 @@ async function searchBooks() {
       //function to show description  
       [bookContainer,infoBtn].forEach(elem => {
                               elem.addEventListener('click', async()=>{
+                                
                                  let description='';
                                  const response = await fetch(`https://openlibrary.org${book.key}.json`)
                                  const data = await response.json();
@@ -117,13 +135,10 @@ async function searchBooks() {
       })
   });
 
-  //remove header display to show books output when user click
-   let header = document.querySelector('header');
-   header.style.display='none'
-  //---
-
-  listContainer.innerHTML +=`
-  <i id="home" class="fa fa-home"> Back Home</i>`
+    //remove header display to show books output when user click
+    let header = document.querySelector('header');
+    header.style.display='none'
+   //---
   
   // if user search a empty string
   if(input.value == ''){
@@ -135,7 +150,7 @@ async function searchBooks() {
         if(bookList.innerHTML == ''){
         bookList.innerHTML = `<h3><b>Sorry! No books founds</b></h3>`;
         } 
-  
+
   // when user want to search another book
   let home = document.getElementById("home") 
         home.addEventListener('click',()=>{
