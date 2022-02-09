@@ -87,7 +87,8 @@ header{
         width: 3em;
         height: 3em;
     }
-    .search-btn {
+     
+    .search-btn{
         background: $white-yellow;
         border-radius: 0 0.95em 0.95em 0 / 0 1.5em 1.5em 0;
         padding: 0.75em;
@@ -106,10 +107,11 @@ header{
 }
 .search-bar input:invalid:not(:focus),
 .search-btn {
-	cursor: pointer;
+	cursor:pointer;
 }
 .search-inp:focus,
-.search-inp:valid  {
+.search-inp:valid,  
+.search-inp:hover{//
 	width: 100%;
     outline: transparent;
     background: $black;
@@ -142,13 +144,16 @@ header{
 	transform: translate(0.2em,0) rotate(45deg);
 	transform-origin: 0 50%;
 }
-/* Active state */
+/* Active state*/ 
 .search-inp:focus + .search-btn,
-.search-inp:valid + .search-btn {
+.search-inp:valid + .search-btn,
+.search-inp:hover + .search-btn {
 	background: $black;
 	border-radius: 0 0.375em 0.375em 0;
 	transform: scale(1);
 }
+.search-inp:hover + .search-btn:before, 
+.search-inp:hover + .search-btn:after,
 .search-inp:focus + .search-btn:before, 
 .search-inp:focus + .search-btn:after,
 .search-inp:valid + .search-btn:before, 
@@ -160,6 +165,7 @@ header{
 .search-bar input:valid:not(:focus) + .search-btn:focus {
 	background: $yellow;
 }
+
  /* ------------------------------------BOOK LIST-------------------------------*/
  .list-container{
     #home{  
@@ -323,7 +329,7 @@ header{
     border-radius: 6px;
   }
 
-
+// desktop
   @media only screen and (min-width: 800px){
 
     header{

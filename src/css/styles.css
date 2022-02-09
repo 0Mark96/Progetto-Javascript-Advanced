@@ -106,7 +106,8 @@ header .background-video {
 }
 
 .search-inp:focus,
-.search-inp:valid {
+.search-inp:valid,
+.search-inp:hover {
   width: 100%;
   outline: transparent;
   background: #1d1d1d;
@@ -143,14 +144,17 @@ header .background-video {
   transform-origin: 0 50%;
 }
 
-/* Active state */
+/* Active state*/
 .search-inp:focus + .search-btn,
-.search-inp:valid + .search-btn {
+.search-inp:valid + .search-btn,
+.search-inp:hover + .search-btn {
   background: #1d1d1d;
   border-radius: 0 0.375em 0.375em 0;
   transform: scale(1);
 }
 
+.search-inp:hover + .search-btn:before,
+.search-inp:hover + .search-btn:after,
 .search-inp:focus + .search-btn:before,
 .search-inp:focus + .search-btn:after,
 .search-inp:valid + .search-btn:before,

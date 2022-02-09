@@ -32,18 +32,11 @@ document.querySelector('#searchBtn').addEventListener('click', searchBooks); //a
 // ---------------------function to load book data and show output on screen------------------------
 async function searchBooks() {
   
-  //remove header display to show books output when user click
-  let header = document.querySelector('header');
-  header.style.display='none'
-  //---
-
-  //add first container where to append book 
+//add first container where to append book 
   let listContainer = document.getElementById('list-container');
-  listContainer.innerHTML =`
-  <i id="home" class="fa fa-home"> Back Home</i> 
+  listContainer.innerHTML =` 
   <div class="row row-cols-auto book-list" id="book-list"></div>
-  `
-  //---
+ ` 
   
   //use input value to load api, after send to screen all book list found
   let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
@@ -124,6 +117,14 @@ async function searchBooks() {
       })
   });
 
+  //remove header display to show books output when user click
+   let header = document.querySelector('header');
+   header.style.display='none'
+  //---
+
+  listContainer.innerHTML +=`
+  <i id="home" class="fa fa-home"> Back Home</i>`
+  
   // if user search a empty string
   if(input.value == ''){
     return false
