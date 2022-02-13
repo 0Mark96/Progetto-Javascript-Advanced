@@ -57,8 +57,7 @@ async function searchBooks(input) {
  
   
   //use input value to load api, after send to screen all book list found
-  //let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
-  
+  //
   const response = await axios.get(`https://openlibrary.org/subjects/${input}.json?details=true`)
   const data = await response.data;
   
