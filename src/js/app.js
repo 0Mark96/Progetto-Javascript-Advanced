@@ -1,6 +1,6 @@
 
 import axios from "axios";
-
+import lodash from "lodash"
 import "../css/styles.css";
 
 import video1 from '../video/Table.mp4'
@@ -36,7 +36,8 @@ searchBooks(input)
 
 //add event to button
 let searchBtn = document.querySelector('#searchBtn')
-searchBtn.addEventListener('click',  () => {
+searchBtn.addEventListener('click',  (e) => {
+  e.preventDefault()
 let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, '');
 searchBooks(input)
 }); 
@@ -57,6 +58,7 @@ async function searchBooks(input) {
   
   //use input value to load api, after send to screen all book list found
   //let input = document.querySelector('#searchInp').value.toLowerCase().replace(/\s/g, ''); //take value from input
+  
   const response = await axios.get(`https://openlibrary.org/subjects/${input}.json?details=true`)
   const data = await response.data;
   
@@ -93,46 +95,46 @@ async function searchBooks(input) {
       document.getElementById('book-list').append(bookBtnContainer); 
 
       //function to show description  
-      [bookContainer,infoBtn].forEach(elem => {
-                              elem.addEventListener('click', async()=>{
-                                
-                                 let description='';
-                                 const response = await fetch(`https://openlibrary.org${book.key}.json`)
-                                 const data = await response.json();
-                          
-                            try{
-                                 description += `    
-                                              <div class="popup" id="popup-container">
-                                                <div class="container-sm details-container">
-                                                    <div class="title-details">
-                                                      <h1>Description</h1>
-                                                    </div>
-                                                    <div class="description">
-                                                      <p>${data.description.value ? data.description.value : data.description}</p>
-                                                    </div>
-                                                </div>
-                                                <button id="close-popup"><i class="fa fa-times-circle"></i></button>
-                                              </div>
-                                              `;
-                                 document.getElementById('info').innerHTML = description;
-                          } 
-                   
-                      catch(err){
-                                 if (err instanceof TypeError) {
-                                     alert('Sorry! No description found')
-                                 } else {
-                                     throw err; 
-                                   }
-                      }
-                          
-                                //close description
-                                const popupContainer = document.getElementById('popup-container');
-                                const closePopup = document.getElementById('close-popup');
-                                closePopup.addEventListener('click', ()=>{
-                                                      popupContainer.classList.add('hidden');
-                                                      });
-                            })
-      })
+    [bookContainer,infoBtn].forEach(elem => {
+        elem.addEventListener('click', async()=>{
+                           
+        let description='';
+        const response = await fetch(`https://openlibrary.org${book.key}.json`)
+        const data = await response.json() 
+        function takeData(){
+            if(data){
+              if(data.description){
+                return data.description.value || data.description
+            }else{
+              return 'Sorry! No description found'
+            }
+          }else{
+            return 'Sorry! No description found'
+          } 
+          }
+          description += `    
+                       <div class="popup" id="popup-container">
+                         <div class="container-sm details-container">
+                             <div class="title-details">
+                               <h1>Description</h1>
+                             </div>
+                             <div class="description">
+                               <p>${takeData()}</p>
+                             </div>
+                         </div>
+                         <button id="close-popup"><i class="fa fa-times-circle"></i></button>
+                       </div>
+                       `;
+          document.getElementById('info').innerHTML = description;
+          
+         //close description
+         const popupContainer = document.getElementById('popup-container');
+         const closePopup = document.getElementById('close-popup');
+         closePopup.addEventListener('click', ()=>{
+                               popupContainer.classList.add('hidden');
+                               });
+     })
+})
   });
 
     //remove header display to show books output when user click
@@ -158,6 +160,5 @@ async function searchBooks(input) {
         listContainer.innerHTML=''
         })
 };
-
 
 
